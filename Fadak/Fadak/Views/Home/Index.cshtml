@@ -1,0 +1,500 @@
+﻿@model Fadak.Models.ViewModels.HomePageViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> @Resources.StaticTexts.CompanyName</title>
+    <link href="~/assets/bootstrap/css/bootstrap-rtl.css" rel="stylesheet" id="rtlStyle2">
+    <link href="~/assets/bootstrap/css/bootstrap.css" rel="stylesheet" id="ltrStyle2" />
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/owl-carousel/css/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/owl-carousel/css/owl.theme.css" rel="stylesheet">
+    <link href="/Content/Theme/style_fa.css" rel="stylesheet" id="rtlStyle">
+    <link href="~/Content/Theme/style.css" rel="stylesheet" id="ltrStyle" />
+    <link href="~/Content/Theme/New.css" id="rtlStyle3" rel="stylesheet">
+    <link href="~/Content/Theme/New_en.css" id="ltrStyle3" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png">
+ 
+    <meta name="google-site-verification" content="g96yBO_9VrwYFDeQaZmMiyybSeCUl4MJvbeaccqpRWk" />
+</head>
+<body>
+    @*<div id="dvLoading"></div>*@
+    <header>
+        <div class="top-wrapper">
+            <div class="col-sm-4 col-md-3">
+                <div class="top-right" id="menubox">
+                    <!-- Logo -->
+                    <div class="logo hidden-xs"><a href="/"> <img src="/images/logo3.png" alt="Venus"></a></div>
+                    <!-- Navigation -->
+                    <div class="navigation">
+                        <nav class="navbar navbar-default">
+                            <div class="row">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                                    <a class="navbar-brand" href="/"><img src="/images/mobile-logo.png" alt="Venus" /></a>
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="/Home/index">@Resources.StaticTexts.MenuHome</a></li>
+                                        <li class="dropdown">
+                                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Resources.StaticTexts.MenuProduct <i class="fa fa-angle-left hidden-xs" id="pro-icon"></i><i class="fa fa-angle-down hidden-lg hidden-md hidden-sm"></i></a>
+                                            <ul class="dropdown-menu">
+                                                @foreach (var item in Model.ProductInMenu)
+                                                {
+                                                    <li><a href="/product/@item.Id">@item.TitleStr</a></li>
+
+                                                }
+                                            </ul>
+                                        </li>
+                                        <li><a href="/gallery">@Resources.StaticTexts.MenuGallery</a></li>
+                                        <li><a href="/customer">@Resources.StaticTexts.MenuCustomer</a></li>
+                                        <li><a href="/About">@Resources.StaticTexts.MenuAbout</a></li>
+                                        <li><a href="/Contact">@Resources.StaticTexts.MenuContact</a></li>
+                                        <li><a href="#trade">@Resources.StaticTexts.Trade</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.navbar-collapse -->
+                            </div>
+                        </nav>
+                    </div>
+                    @*@Html.Action("Partial_HeaderPhone", "Home")*@
+                    <ul class="contact-info hidden-xs">
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p><span>@Resources.StaticTexts.email:</span><br>sales@acf.co.com</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p><span>تلفن تماس</span><br>02122360900<br/>
+                                02122360901<br />
+                                02122360902</p>
+                        </li>
+                    </ul>
+                    @*<ul class="social-icons hidden-xs">
+                        <li><a href="javascript:void(0)"><i class="fa fa-" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>*@
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9 no-padding">
+                <div class="banner-wrapper">
+                    @*<div class="header-forms hidden-xs">
+                        <ul>
+                            <li class="login">
+                                <a href="#" onclick="languageChanged('en-US')"> En</a>
+                            </li>
+                            <li class="login">
+                                <span>  /</span>
+                            </li>
+                            <li class="register">
+                                <a href="#" onclick="languageChanged('fa-IR')">Fa</a>
+                            </li>
+                        </ul>
+                    </div>*@
+                    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+                        <div class="overlay"></div>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            @foreach (var item in Model.slider)
+                            {
+                                <div class="item slides" style="background-image: url('@item.ImageUrl')">
+                                    <div class="slide-1"></div>
+                                    <div class="hero">
+                                        <h1>@item.BigTitleStr<br></h1>
+                                        <p>@item.SmallTitleStr</p>
+                                        <a class="btn btn-hero animated3" href="@item.FirsLinkAddress">@item.FirstLinkTextStr</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="slide-arrows"><a class="left carousel-control" href="#bs-carousel" data-slide="prev"><span class="transition3s glyphicon glyphicon-chevron-left fa fa-angle-right"></span></a> <a class="right carousel-control" href="#bs-carousel" data-slide="next"><span class="transition3s glyphicon glyphicon-chevron-right fa fa-angle-left"></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="about">
+        <diV class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-7">
+                    <h2>@Model.AboutText.TitleStr</h2>
+                    <p>@Html.Raw(Model.AboutText.TextBodyStr) </p>
+                </div>
+                <div class="col-sm-12 col-md-5"><img src="@Model.AboutText.TextImageUrl" alt="@Model.AboutText.TitleStr"></div>
+            </div>
+            <div class="row offset-top-30" id="trade">
+                <div class="col-sm-12 col-md-7">
+                    <h2>@Resources.StaticTexts.Trade</h2>
+                    <p>@Resources.StaticTexts.TradeText</p>
+                </div>
+                <div class="col-sm-12 col-md-5"><img src="/images/fadak-trade.jpg" alt="@Resources.StaticTexts.Trade"></div>
+            </div>
+            <div class="row offset-top-30">
+                <div class="col-sm-12 col-md-7">
+                    <h2 class="no-img">@Model.AboutTextView.TitleStr</h2>
+                    <p>@Html.Raw(Model.AboutTextView.TextBodyStr) </p>
+                </div>
+                <div class="col-sm-12 col-md-5">
+                    <div id="15071439933539809">
+                        <script type="text/JavaScript" src="https://www.aparat.com/embed/kaQ3P?data[rnddiv]=15071439933539809&data[responsive]=yes"></script>
+                    </div>
+                </div>
+            </div>
+        </diV>
+    </section>
+    <section class="testimonials-wrapper">
+        <div class="container">
+            <h2>@Resources.StaticTexts.MenuProduct <span>@Resources.StaticTexts.CompanyName</span></h2>
+            <div id="testimonials" class="owl-carousel owl-theme">
+                @foreach (var item in Model.Testimonial)
+                {
+                    <div class="item"><p>@Html.Raw(item.TextBodyStr)</p><h3>@item.TitleStr</h3><img src="@item.TextImageUrl" alt="@item.TitleStr"></div>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="better-property">
+        <div class="container">
+            <h2>@Resources.StaticTexts.CompanyName</h2>
+            <p class="des">@Resources.StaticTexts.ProListSummery</p>
+            <div class="row">
+                <div class="col-sm-3 col-md-2">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#flats" data-toggle="tab">
+                                <span class="flats"></span><br>@Resources.StaticTexts.MenuProduct <br>@Resources.StaticTexts.CompanyNameSmall
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#villas" data-toggle="tab">
+                                <span class="villas"></span><br>@Resources.StaticTexts.MenuCustomer <br>@Resources.StaticTexts.CompanyNameSmall
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#homes" data-toggle="tab">
+                                <span class="homes"></span><br>@Resources.StaticTexts.Certificates<br>@Resources.StaticTexts.CompanyNameSmall
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#ack" data-toggle="tab">
+                                <span class="ack"></span><br>@Resources.StaticTexts.Acknowledgment<br>@Resources.StaticTexts.CompanyNameSmall
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#plots" data-toggle="tab">
+                                <span class="plots"></span><br>@Resources.StaticTexts.Equipment<br>@Resources.StaticTexts.CompanyNameSmall
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-md-10 no-padding">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="flats">
+                            <div id="properties" class="owl-carousel owl-theme">
+                                @foreach (var item in Model.ProductList)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                                <div class="property-details"><p>@item.SummeryStr</p></div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>@item.TitleStr</h3>
+                                                <a href="/product/@item.Id">@Resources.StaticTexts.ReadMore<i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property">
+                                                    <a href="/product/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="villas">
+                            <div id="villass" class="owl-carousel owl-theme">
+                                @foreach (var item in Model.CustomerList)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                                <div class="property-details"><p>@item.SummeryStr</p></div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>@item.TitleStr</h3>
+                                                <a href="/customer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property"><a href="/customer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore<i class="fa fa-angle-left" aria-hidden="true"></i></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="homes">
+                            <div id="home" class="owl-carousel owl-theme">
+                                @foreach (var item in Model.CertificateList)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.Title">
+                                                <div class="property-details"><p>@item.SummeryStr</p></div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>@item.TitleStr</h3>
+                                                <a href="/cer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property">
+                                                    <a href="/cer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="ack">
+                            <div id="acks" class="owl-carousel owl-theme">
+                                @foreach (var item in Model.Acknowledgments)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                                <div class="property-details"><p>@item.SummeryStr</p></div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>@item.TitleStr</h3>
+                                                <a href="/cer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property">
+                                                    <a href="/cer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="plots">
+                            <div id="plot" class="owl-carousel owl-theme">
+                                @foreach (var item in Model.Equipment)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                                <div class="property-details"><p>@item.SummeryStr</p></div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>@item.TitleStr</h3>
+                                                <a href="/cer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property">
+                                                    <a href="/cer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="satisfied-wrapper">
+        <div class="container">
+            <div class="statistics">
+                @{ int i = 0;}
+                @foreach (var item in Model.StatisticText)
+                {
+                    if (i == 0)
+                    {
+                        <div class="col-sm-6 col-md-3 counter">
+                            <div class="icon clients"></div>
+                            <div class="number animateNumber" data-num="@Html.Raw(item.TextBodyStr)"> <span>@Html.Raw(item.TextBodyStr)</span></div>
+                            <p>@item.TitleStr</p>
+                        </div>
+                    }
+                    else if (i == 1)
+                    {
+                        <div class="col-sm-6 col-md-3 counter">
+                            <div class="icon apartments"></div>
+                            <div class="number animateNumber" data-num="@Html.Raw(item.TextBodyStr)"> <span>@Html.Raw(item.TextBodyStr)</span></div>
+                            <p>@item.TitleStr</p>
+                        </div>
+                    }
+                    else if (i == 2)
+                    {
+                        <div class="col-sm-6 col-md-3 counter">
+                            <div class="icon house-villas"></div>
+                            <div class="number animateNumber" data-num="@Html.Raw(item.TextBodyStr)"> <span>@Html.Raw(item.TextBodyStr)</span></div>
+                            <p>@item.TitleStr</p>
+                        </div>
+                    }
+                    else if (i == 3)
+                    {
+                        <div class="col-sm-6 col-md-3 counter">
+                            <div class="icon agents"></div>
+                            <div class="number animateNumber" data-num="@item.TextBodyStr"> <span>@item.TextBodyStr</span></div>
+                            <p>@item.TitleStr</p>
+                        </div>
+                    }
+                    i++;
+                }
+            </div>
+        </div>
+    </div>
+    <section class="blog">
+        <div class="container">
+            <h2>@Resources.StaticTexts.LatestNews<span>@Resources.StaticTexts.CompanyNameSmall</span></h2>
+            <div class="row">
+                @foreach (var item in Model.RecentBlog)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="hover-img" href="/blog/@item.fk_BlogCategoryId/@item.Id"> <img alt="image" src="@item.ImageUrl"> </a>
+                            <ul class="date"><li>@item.SubmitDate.Value.Day</li><li>@item.SubmitDate.Value.ToString("MMM") </li></ul>
+                            <div class="caption">
+                                <h3><a href="/blog/@item.fk_BlogCategoryId/@item.Id">@item.TitleStr</a></h3><p>@item.SummeryStr</p>
+                                <a href="/blog/@item.fk_BlogCategoryId/@item.Id" class="readmore">@Resources.StaticTexts.ReadMore<i class="blog-readmore-icon fa fa-angle-left" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    @Html.Action("Partial_Footer", "Home")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/assets/bootstrap/js/bootstrap-rtl.js"></script>
+    <script src="/assets/jquery/price-range.js"></script>
+    <script src="/assets/jquery/jquery.animateNumber.min.js"></script>
+    <script src="/assets/jquery/plugins.js"></script>
+    <script src="/assets/jquery/jquery.countdown.min.js"></script>
+    <script src="/assets/owl-carousel/js/owl.carousel.js"></script>
+    <script src="/Scripts/Theme/custom.js"></script>
+
+    <script type="text/javascript">
+        function languageChanged(langInput) {
+            setCookie("MyLanguageCookieName", langInput, 365, null);
+            window.location.reload();
+        }
+        $(document).ready(function () {
+          var cultureVal = getCookie("MyLanguageCookieName");
+            if (cultureVal.includes("fa")) {
+                document.getElementById('rtlStyle').disabled = false;
+                document.getElementById('rtlStyle2').disabled = false;
+                document.getElementById('ltrStyle').disabled = true;
+                document.getElementById('ltrStyle2').disabled = true;
+
+                document.getElementById('rtlStyle3').disabled = false;
+                document.getElementById('ltrStyle3').disabled = true;
+
+                $('#menubox').removeClass('top-left');
+                $('#menubox').addClass('top-right');
+
+                $('#pro-icon').removeClass('fa-angle-right');
+                $('#pro-icon').addClass('fa-angle-left');
+
+                $('.blog-readmore-icon').removeClass('fa-angle-right');
+                $('.blog-readmore-icon').addClass('fa-angle-left');
+
+            }
+            else {
+                document.getElementById('rtlStyle').disabled = true;
+                document.getElementById('rtlStyle2').disabled = true;
+                document.getElementById('ltrStyle').disabled = false;
+                document.getElementById('ltrStyle2').disabled = false;
+                document.getElementById('rtlStyle3').disabled = true;
+                document.getElementById('ltrStyle3').disabled = false;
+
+                $('#menubox').removeClass('top-right');
+                $('#menubox').addClass('top-left');
+
+                $('#pro-icon').removeClass('fa-angle-left');
+                $('#pro-icon').addClass('fa-angle-right');
+
+                $('.blog-readmore-icon').removeClass('fa-angle-left');
+                $('.blog-readmore-icon').addClass('fa-angle-right');
+            }
+        });
+
+        function setCookie(name, value, exdays, path) {
+            var today = new Date();
+            var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+            document.cookie = name + "=" + value + "; path=/; expires=" + expiry.toGMTString();
+            //var exdate = new Date();
+            //exdate.setDate(exdate.getDate() + exdays);
+            //var newValue = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString()) + ((path == null) ? "" : "; path=" + path);
+            //document.cookie = name + "=" + newValue;
+        }
+        function getCookie(name) {
+            var i, x, y, cookies = document.cookie.split(";");
+            for (i = 0; i < cookies.length; i++) {
+                x = cookies[i].substr(0, cookies[i].indexOf("="));
+                y = cookies[i].substr(cookies[i].indexOf("=") + 1);
+                x = x.replace(/^\s+|\s+$/g, "");
+                if (x == name) {
+                    return unescape(y);
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //activate First Slide
+            $(".slides:first-child").addClass('active');
+
+            $('#btnSubmitNewsletter').click(function () {
+                var newsletter = $('#txtNewsletter').val();
+                if (newsletter != "")
+                {
+                    $.ajax(
+                  {
+                      url: "/Newsletters/NewsletterSubmit",
+                      data: { email: newsletter},
+                      type: "GET"
+                  }).done(function (result) {
+                      if (result == 'true') {
+                          $('#SuccessDivEmail').css('display', 'block');
+                          $('#errorEmail').css('display', 'none');
+                      }
+                      else if (result == 'false') {
+                          $('#errorEmail').css('display', 'block');
+                          $('#SuccessDivEmail').css('display', 'none');
+                          $('#errorEmail').html('ایمیل وارد شده صحیح نمی باشد');
+                      }
+                      else if (result == 'repeat') {
+                          $('#errorEmail').css('display', 'block');
+                          $('#SuccessDivEmail').css('display', 'none');
+                          $('#errorEmail').html('ایمیل شما قبلا ثبت شده است.');
+                      }
+                  });
+                }
+                else
+                {
+                    $('#errorEmail').css('display', 'block');
+                    $('#SuccessDivEmail').css('display', 'none');
+                    $('#errorEmail').html('ایمیل خود را وارد نمایید');
+                }
+            });
+        });
+    </script>
+    <div style="display:none">
+        <a title="Real Time Web Analytics" href="http://clicky.com/101076707"><img alt="Real Time Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+        <script src="//static.getclicky.com/js" type="text/javascript"></script>
+        <script type="text/javascript">try { clicky.init(101076707); } catch (e) { }</script>
+        <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101076707ns.gif" /></p></noscript>
+    </div>
+</body>
+</html>

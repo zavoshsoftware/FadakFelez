@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Fadak.Models.Customers>
+
+@{
+    ViewBag.Title =Resources.StaticTexts.MenuCustomer;
+}
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+
+            <li>@Resources.StaticTexts.MenuCustomer</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+@Resources.StaticTexts.MenuCustomer
+}
+ <section class="inner-wrapper">
+    <diV class="container">
+        <div class="offset-top-60 better-property">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 no-padding">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="flats">
+                            <div id="properties" class="owl-carousel owl-theme">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="item">
+                                        <div class="property-callout">
+                                            <div class="property-img">
+                                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                                <div class="property-details">
+                                                    <p>
+                                                        @item.SummeryStr
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="callout-content">
+                                                <h3>
+                                                    @item.TitleStr
+                                                </h3>
+                                                <a href="/customer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <div class="share-property">
+                                                    <a href="/customer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </diV>
+</section>

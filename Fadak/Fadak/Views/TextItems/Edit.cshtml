@@ -1,0 +1,66 @@
+﻿@model Fadak.Models.TextItems
+
+@{
+    ViewBag.Title = "ویرایش " + Server.HtmlDecode(Html.DisplayNameFor(model => model).ToString());
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">        
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.TextItemID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                                  @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TextBody, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                                  @Html.EditorFor(model => model.TextBody)
+                @Html.ValidationMessageFor(model => model.TextBody)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title_En, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title_En)
+                @Html.ValidationMessageFor(model => model.Title_En)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TextBody_En, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TextBody_En)
+                @Html.ValidationMessageFor(model => model.TextBody_En)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TextImageUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                                  @Html.Kendo().Upload().Name("fileUpload").Multiple(false)
+	 @Html.HiddenFor(model => model.TextImageUrl)
+                @Html.ValidationMessageFor(model => model.TextImageUrl)
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.fk_TextTypeID)
+	 @Html.HiddenFor(model => model.SubmitDate)
+        <div class="form-group" id="buttons">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+				@Html.ActionLink("بازگشت به فهرست", "Index",new { @id = ViewBag.fk })
+            </div>
+        </div>
+    </div>
+}
+

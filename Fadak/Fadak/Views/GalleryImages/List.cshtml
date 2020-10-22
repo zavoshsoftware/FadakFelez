@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Fadak.Models.GalleryImages>
+
+@{
+    ViewBag.Title = Resources.StaticTexts.MenuGallery;
+}
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+
+            <li>@Resources.StaticTexts.MenuGallery</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+    @Resources.StaticTexts.MenuGallery
+}
+<section class="inner-wrapper">
+    <diV class="container">
+        <div class="row">
+            <div class="gal-container">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#@item.Id">
+                                <div class="caption">
+                                    <h4>@item.TitleStr</h4>
+                                    <p>@item.TitleStr</p>
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+                                <img src="@item.ImageUrl" alt="@item.TitleStr" />
+                            </a>
+                            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body"> <img src="@item.ImageUrl" alt="@item.TitleStr"> </div>
+                                        <div class="col-md-12 description">
+                                            <h4>@item.TitleStr</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </diV>
+</section>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Fadak.Models.Products>
+
+@{
+    Layout = null;
+}
+
+<ul class="dropdown-menu">
+    @foreach (var item in Model)
+    {
+        <li><a href="/product/@item.Id">@item.TitleStr</a></li>
+    }
+</ul>

@@ -1,0 +1,66 @@
+﻿@model Fadak.Models.ViewModels.CertificateDetailViewModel
+
+@{
+    ViewBag.Title = Model.CurrentCertificate.TitleStr;
+}
+
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+         
+            <li>@Model.CurrentCertificate.TitleStr</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+    @Model.CurrentCertificate.TitleStr
+}
+<section class="inner-wrapper inner-property-details">
+    <diV class="container">
+
+        <div class="offset-top-60 better-property">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12 no-padding">
+                    <div class="tab-content drtl">
+                        <div class="tab-pane active" id="description">
+                            <h2>@Model.CurrentCertificate.TitleStr</h2>
+                            @Html.Raw(Model.CurrentCertificate.DetailStr)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row offset-top-60 better-property similar-properites">
+            <h2>@Resources.StaticTexts.OtherCer</h2>
+            <div id="similar-properties" class="owl-carousel owl-theme">
+                @foreach (var item in Model.SimilarCertificates)
+                {
+                    <div class="item">
+                        <div class="property-callout">
+                            <div class="property-img">
+                                <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                <div class="property-details">
+                                    <p>
+                                        @item.SummeryStr
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="callout-content">
+                                <h3>
+                                    @item.TitleStr
+                                </h3>
+                                <a href="/cer/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                <div class="share-property">
+                                    <a href="/cer/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </diV>
+</section>

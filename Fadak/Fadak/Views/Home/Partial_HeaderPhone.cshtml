@@ -1,0 +1,23 @@
+﻿@model Fadak.Models.ViewModels.FooterViewModel
+@{
+    Layout = null;
+}
+<ul class="contact-info hidden-xs">
+    <li>
+        <i class="fa fa-phone"></i>
+        <p>
+            <span>@Resources.StaticTexts.ContactWithUs</span><br>
+
+
+
+          @Html.Raw(Model.phone)
+        </p>
+    </li>
+    <li>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <p>
+            <span>@Resources.StaticTexts.AddressTitle:</span><br>
+          @Html.Raw(Model.address)
+        </p>
+    </li>
+</ul>

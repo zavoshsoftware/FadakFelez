@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Fadak.Models.BlogCategories>
+@{
+    Layout = null;
+}
+<div class="unordered-list">
+    <h2> @Resources.StaticTexts.blogCatTitle </h2>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="/Blog/@item.Id">@item.TitleStr</a></li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,107 @@
+﻿@model Fadak.Models.Sliders
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sliders</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BigTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BigTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BigTitle_En)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BigTitle_En)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmallTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmallTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmallTitle_En)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmallTitle_En)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstLinkText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstLinkText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstLinkText_En)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstLinkText_En)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirsLinkAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirsLinkAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e28315c4f112411198a71bd8d378d6b4" Name="Diagram1">
+        <EntityTypeShape EntityType="FadakDBModel.GalleryImages" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FadakDBModel.BlogCategories" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="FadakDBModel.Blogs" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="FadakDBModel.Certificates" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FadakDBModel.Customers" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FadakDBModel.ProductImages" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FadakDBModel.Products" Width="1.5" PointX="6.75" PointY="4.75" />
+        <AssociationConnector Association="FadakDBModel.FK_Blogs_BlogCategories" />
+        <AssociationConnector Association="FadakDBModel.FK_ProductImages_Products" />
+        <EntityTypeShape EntityType="FadakDBModel.Roles" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="FadakDBModel.Users" Width="1.5" PointX="3" PointY="9" />
+        <AssociationConnector Association="FadakDBModel.FK_User_Role" />
+        <EntityTypeShape EntityType="FadakDBModel.TextItems" Width="1.5" PointX="10.625" PointY="1" />
+        <EntityTypeShape EntityType="FadakDBModel.TextTypes" Width="1.5" PointX="8.375" PointY="1.25" />
+        <AssociationConnector Association="FadakDBModel.FK_TextItems_TextTypes" />
+        <EntityTypeShape EntityType="FadakDBModel.ContactForm" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="FadakDBModel.Newsletters" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="FadakDBModel.Types" Width="1.5" PointX="0.75" PointY="13.25" />
+        <AssociationConnector Association="FadakDBModel.FK_Certificates_Types" />
+        <EntityTypeShape EntityType="FadakDBModel.Sliders" Width="1.5" PointX="7.375" PointY="9.75" />
+        <EntityTypeShape EntityType="FadakDBModel.HeaderImages" Width="1.5" PointX="9.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

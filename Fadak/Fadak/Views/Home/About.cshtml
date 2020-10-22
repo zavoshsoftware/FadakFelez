@@ -1,0 +1,50 @@
+﻿@model Fadak.Models.ViewModels.AboutUsViewModel
+
+@{
+    ViewBag.Title = Resources.StaticTexts.MenuAbout;
+}
+
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+
+            <li>@Resources.StaticTexts.MenuAbout</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+    @Resources.StaticTexts.MenuAbout
+}
+<section class="inner-wrapper aboutus">
+    <diV class="container">
+        <h2>@Model.AboutText.TitleStr</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+                @Html.Raw(Model.AboutText.TextBodyStr)
+           </div>
+            <div class="col-sm-12 col-md-5">
+                <figure><img src="@Model.AboutText.TextImageUrl" alt="@Model.AboutText.TitleStr"></figure>
+            </div>
+        </div>
+
+        <div class="offset-top-60">
+            <h2>@Resources.StaticTexts.WhyUs</h2>
+            <div class="panel-group collaps" id="accordion" role="tablist" aria-multiselectable="true">
+                @foreach (var item in Model.WhyUs)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="@item.TextItemID">
+                            <h4 class="panel-title"> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_@item.TextItemID" aria-expanded="true" class=""> @item.TitleStr </a> </h4>
+                        </div>
+                        <div id="collapse_@item.TextItemID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@item.TextItemID" aria-expanded="true">
+                            <div class="panel-body">@Html.Raw(item.TextBodyStr) </div>
+                        </div>
+                    </div>
+                }
+               
+            </div>
+        </div>
+    </diV>
+</section>

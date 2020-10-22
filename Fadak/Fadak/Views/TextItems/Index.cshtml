@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Fadak.Models.TextItems>
+
+@{
+ViewBag.Title = "فهرست " + Server.HtmlDecode(Html.DisplyModelPluralName(model => model).ToString());
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+        @(Html.Kendo().Grid(Model)
+              .Name("Grid")
+              .Columns(columns =>
+                  {
+              
+        columns.Bound(model => model.Title);
+        columns.Bound(model => model.TextImageUrl).Template(@<text><img src="@item.TextImageUrl" height="100px" /></text>);
+					columns.Bound(item => @item.TextItemID).Title("دستورات").Filterable(false).Groupable(false)
+							.Template(@<text>
+									@Html.ActionLink("ویرایش", "Edit", new {id = @item.TextItemID}, new {@class = "k-button"})
+								 
+									</text>).Width(200);
+                  })
+        //.ToolBar(toolbar =>
+        //{
+        //    toolbar.Custom().Action("Create","TextItems").Text("افزودن");
+        //}
+        //)
+        //.Groupable()
+        //.Pageable()
+        //.Sortable()
+        //.Scrollable()
+        //.Filterable()              
+        .DataSource(dataSource => dataSource
+                                    .Server()
+
+                                    .Model(model => model.Id(item => item.TextItemID))
+                    )
+    )

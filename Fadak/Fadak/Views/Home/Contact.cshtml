@@ -1,0 +1,134 @@
+﻿@model Fadak.Models.ViewModels.ContactUsViewModel
+@{
+    ViewBag.Title = Resources.StaticTexts.MenuContact;
+}
+
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuContact</a></li>
+
+            <li>@Resources.StaticTexts.MenuContact</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+    @Resources.StaticTexts.MenuContact
+}
+<section class="inner-wrapper contactus">
+    <diV class="container">
+        <h2>@Resources.StaticTexts.ContactWithUs</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-form">
+                    <div class="contactForm">
+                        <div class="alert alert-danger" id="errorDivQ">@Resources.StaticTexts.ErrorNameMessage</div>
+                        <div class="alert alert-success" id="SuccessDivQ">@Resources.StaticTexts.SubmitSuccess</div>
+
+                        <div class="form-group">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input id="name" type="text" name="user-name" placeholder="@Resources.StaticTexts.FormName">
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input id="email" type="email" name="user-email" placeholder="@Resources.StaticTexts.FormEmail">
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <input id="phone" type="text" name="phone" placeholder="@Resources.StaticTexts.FormPhone">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="@Resources.StaticTexts.FormMessage" name="mess" class="txt_3"></textarea>
+                        </div>
+
+                        <button type="button" class="btn btn-success" id="btnSubmitContact">@Resources.StaticTexts.Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-list">
+                    <h4>@Resources.StaticTexts.CenteralOffice</h4>
+                    <p>
+                        <strong>@Resources.StaticTexts.CompanyName</strong><br>
+                        @Html.Raw(Model.Address)
+
+
+                    </p>
+                    <h4>@Resources.StaticTexts.MenuContact</h4>
+                    <ul class="contact">
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p style="direction:ltr;">
+                               @Html.Raw(Model.Phone)
+
+
+                            </p>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <p> <a href="mailto:@Model.Email">@Html.Raw(Model.Email)</a></p>
+                        </li>
+                        
+                        <li>
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <p>
+                                <span>Telegram & WhatsApp & WeChat</span><br>
+                                00989353033233
+                            </p>
+                        </li>
+                    </ul>
+                 
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="contact-list">
+                    <h4>
+
+                        @Resources.StaticTexts.WorkHour
+                    </h4>
+                    <p>
+                        @Html.Raw(Model.Hours)
+                    </p>
+                    <img src="@Model.HourImage" />
+                </div>
+            </div>
+        </div>
+        <div id="googleMap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1618.444345273672!2d51.36043749873896!3d35.77811049429127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sir!4v1494762902612" allowfullscreen></iframe>
+        </div>
+    </diV>
+</section>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnSubmitContact").click(function () {
+                var nameVal = $('#name').val();
+                var emailVal = $('#email').val();
+                var phoneVal = $('#phone').val();
+                var messageVal = $('#message').val();
+
+                if (nameVal != "" && messageVal != "") {
+                    $.ajax(
+                  {
+                      url: "/ContactForms/SubmitContactForm",
+                      data: { Name: nameVal, Email: emailVal, Phone: phoneVal, Message: messageVal },
+                      type: "GET"
+                  }).done(function (result) {
+                      $('#errorDivQ').css('display', 'none');
+                      $('#SuccessDivQ').css('display', 'block');
+                  });
+                }
+                else {
+                    $('#errorDivQ').css('display', 'block');
+                    $('#SuccessDivQ').css('display', 'none');
+                }
+            });
+        });
+    </script>
+}

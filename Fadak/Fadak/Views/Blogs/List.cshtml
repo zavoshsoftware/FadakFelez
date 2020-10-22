@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Fadak.Models.Blogs>
+
+@{
+    ViewBag.Title = "اخبار فدک";
+}
+
+ @section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+            <li>@Resources.StaticTexts.BlogTitle</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+@Resources.StaticTexts.BlogTitle
+}
+<section class="inner-wrapper blog inner-blog">
+    <diV class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4 ">
+                    <div class="thumbnail">
+                        <a class="hover-img" href="/blog/@item.fk_BlogCategoryId/@item.Id"> <img alt="image" src="@item.ImageUrl"> </a>
+                        <ul class="date">
+                            <li>@item.SubmitDate.Value.Day</li>
+                            <li>@item.SubmitDate.Value.ToString("MMM") </li>
+                        </ul>
+                        <div class="caption">
+                            <h3><a href="/blog/@item.fk_BlogCategoryId/@item.Id">@item.TitleStr</a></h3>
+                            <p>@item.SummeryStr</p>
+                            <a href="/blog/@item.fk_BlogCategoryId/@item.Id" class="readmore">@Resources.StaticTexts.ReadMore<i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                            <ul class="details">
+                                <li><i class="fa fa-user" aria-hidden="true"></i> @item.VisitNumber                                
+                                   @Resources.StaticTexts.Visit</li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </diV>
+</section>
+

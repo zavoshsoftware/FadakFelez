@@ -1,0 +1,52 @@
+﻿@model Fadak.Models.Blogs
+
+@{
+    ViewBag.Title = Model.TitleStr;
+}
+
+
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+            <li><a href="/blog">@Resources.StaticTexts.BlogTitle</a></li>
+            <li>@Model.TitleStr</li>
+        </ul>
+    </div>
+}
+
+@section PageTitle{
+    @Model.TitleStr
+}
+<section class="inner-wrapper blog inner-blog">
+    <diV class="container">
+        <div class="single-post">
+            <div class="row">
+                <div class="col-sm-7 col-md-8">
+                    <div class="thumbnail">
+                        <a class="hover-img" href="javascript:void(0)"> <img alt="@Model.TitleStr" src="@Model.ImageUrl"> </a>
+                        <ul class="date">
+                            <li>@Model.SubmitDate.Value.Day</li>
+                            <li>@Model.SubmitDate.Value.ToString("MMM") </li>
+                        </ul>
+                        <div class="caption">
+                            <h3><a href="javascript:void(0)">@Model.TitleStr</a></h3>
+                            <ul class="details">
+                                <li><i class="fa fa-user" aria-hidden="true"></i> @Model.VisitNumber @Resources.StaticTexts.Visit</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drtl">
+                        @Html.Raw(Model.DetailStr)
+                    </div>
+                </div>
+                <div class="col-sm-5 col-md-4">
+                    <div class="sidebar">
+                        @Html.Action("Partial_LatestBlog", "Blogs")
+                        @Html.Action("Partial_BlogCatList", "BlogCategories")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </diV>
+</section>

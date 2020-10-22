@@ -1,0 +1,79 @@
+﻿@model Fadak.Models.ViewModels.ProductDetailViewModel
+
+@{
+    ViewBag.Title = Model.CurrentProduct.TitleStr;
+}
+@section breadcrumb{
+    <div class="inner-breadcrumb">
+        <ul>
+            <li><a href="/">@Resources.StaticTexts.MenuHome</a></li>
+            <li>@Model.CurrentProduct.TitleStr</li>
+        </ul>
+    </div>
+}
+
+
+@section PageTitle{
+ @Model.CurrentProduct.TitleStr
+}
+<section class="inner-wrapper inner-property-details">
+    <diV class="container">
+        <div class="banner-wrapper">
+
+            <div class="offset-top-60 home-details">
+                <h2>
+                    @Model.CurrentProduct.TitleStr
+                </h2>
+                <ul class="pgwSlider">
+                    @foreach (var item in Model.ProductImageList)
+                    {
+                        <li><img src="@item.ImageUrl" alt="@Model.CurrentProduct.TitleStr" /></li>
+
+                    }
+                </ul>
+            </div>
+            </div>
+            <div class="offset-top-60 better-property">
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 no-padding">
+                        <div class="tab-content drtl">
+                            <div class="tab-pane active" id="description">
+                                <h2>@Resources.StaticTexts.ProductDetails</h2>
+                                @Html.Raw(Model.CurrentProduct.DetailStr)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row offset-top-60 better-property similar-properites">
+                <h2>
+                    @Resources.StaticTexts.RelatedProduct
+                </h2>
+                <div id="similar-properties" class="owl-carousel owl-theme">
+                    @foreach (var item in Model.SimilarProducts)
+                    {
+                        <div class="item">
+                            <div class="property-callout">
+                                <div class="property-img">
+                                    <img src="@item.ImageUrl" alt="@item.TitleStr">
+                                    <div class="property-details">
+                                        <p>@item.SummeryStr</p>
+                                    </div>
+                                </div>
+                                <div class="callout-content">
+                                    <h3>
+                                        @item.TitleStr
+                                    </h3>
+                                    <a href="/product/@item.Id">@Resources.StaticTexts.ReadMore <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                    <div class="share-property">
+                                        <a href="/product/@item.Id" class="view-details">@Resources.StaticTexts.ReadMore  <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+</section>

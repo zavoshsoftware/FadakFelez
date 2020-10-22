@@ -1,0 +1,193 @@
+﻿#switcher .theme-click {
+	background-color: #008f60;
+}
+section h2 {
+	background: url(/images/heading-icon-two.png) no-repeat left top;
+}
+section h2 span {
+	color: #008f60;
+}
+.top-wrapper {
+	background: #008f60;
+}
+.nav > li > a {
+	border-bottom: dashed 1px #9fdb51;
+}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+	color: #008f60;
+}
+.banner-wrapper .fade-carousel .carousel-control span:hover {
+	border: 1px solid #008f60;
+	background: #008f60;
+}
+.banner-wrapper .btn-hero:hover {
+	border: 1px solid #008f60;
+	background: #008f60;
+}
+.header-forms .ui-widget-header {
+	background: #008f60;
+}
+.header-forms .price-range input {
+	color: #008f60;
+}
+.header-forms li .popup form .btn {
+	background: #008f60;
+}
+.header-forms li .popup [type="radio"]:not(:checked) + label:before, .header-forms li .popup [type="radio"]:checked + label:before {
+	border: solid 1px #008f60;
+}
+.header-forms li .popup [type="radio"]:not(:checked) + label:after, .header-forms li .popup [type="radio"]:checked + label:after {
+	color: #008f60;
+}
+.header-forms li .new-account a {
+	border: solid 1px #008f60;
+	color: #008f60;
+}
+.header-forms li .new-account.reg h3 strong {
+	color: #008f60;
+}
+.header-forms .ui-slider .ui-slider-handle {
+	background: url(/images/slider-handle-two.png) no-repeat left center;
+}
+.header-forms li .new-account ul li {
+	background: url(/images/bullet-two.png) no-repeat left 5px;
+}
+.testimonials-wrapper {
+	background: url(/images/testimonials-bg-five.png) repeat left top;
+}
+.testimonials-wrapper h2 {
+	background-image: url(/images/heading-icon-white-two.png);
+}
+.choose-property .nav-tabs li.active a, .choose-property .nav-tabs li.active a:hover, .choose-property .nav-tabs li a:hover {
+	border-top: solid 2px #008f60;
+}
+.choose-property .ui-widget-header {
+	background: #008f60;
+}
+.choose-property .ui-slider .ui-slider-handle {
+	background: url(/images/slider-handle-two.png) no-repeat left center;
+}
+.choose-property .choose-property-form .price-range input {
+	color: #008f60;
+}
+.better-property .item .property-callout .callout-content .price {
+	color: #008f60;
+}
+.better-property .item .property-callout .property-img .sale {
+	background: #008f60;
+}
+.better-property .item .property-callout:hover .callout-content .share-property {
+	background-color: #008f60;
+}
+.better-property .owl-theme .owl-controls .owl-buttons div {
+	color: #008f60;
+}
+.satisfied-wrapper .counter:hover .icon.clients {
+	background: url(/images/clients-icon-hover-two.png) no-repeat center center;
+}
+.satisfied-wrapper .counter:hover .icon.apartments {
+	background: url(/images/apartments-icon-hover-two.png) no-repeat center center;
+}
+.satisfied-wrapper .counter:hover .icon.house-villas {
+	background: url(/images/house-villas-icon-hover-two.png) no-repeat center center;
+}
+.satisfied-wrapper .counter:hover .icon.agents {
+	background: url(/images/agents-icon-hover-two.png) no-repeat center center;
+}
+.blog .thumbnail:hover .caption a.readmore {
+	color: #008f60;
+}
+.blog .thumbnail:hover .caption a {
+	color: #008f60;
+}
+.blog .date li {
+	background: #008f60;
+}
+.blog .caption .posted span {
+	color: #008f60;
+}
+.inner-breadcrumb {
+	border-bottom: solid 1px #008f60;
+}
+.inner-wrapper.aboutus .item .team-content h3 {
+	color: #008f60;
+}
+.inner-wrapper.aboutus .owl-theme .owl-controls .owl-buttons div {
+	color: #008f60;
+}
+.cmg-soon .count-down .countdown-row .countdown-amount {
+	color: #008f60;
+}
+.cmg-soon .subscirbe h3 {
+	color: #008f60;
+}
+.cmg-soon .subscirbe .form input.bttn {
+	background: #008f60;
+}
+.not-found a:hover {
+	background: #008f60;
+	border: 1px solid #008f60;
+}
+.property-list .nav-tabs li.active a, .property-list .nav-tabs li.active a:hover, .property-list .nav-tabs li a:hover {
+	border-top: solid 2px #008f60;
+}
+.property-list .ui-widget-header {
+	background: #008f60;
+}
+.property-list .property-list-form .price-range input {
+	color: #008f60;
+}
+.property-list .contact-experts h3 span {
+	color: #008f60;
+}
+.property-list .contact-experts h4 {
+	color: #008f60;
+}
+.property-list .ui-slider .ui-slider-handle {
+	background: url(/images/slider-handle-two.png) no-repeat left center;
+}
+.inner-property-details .table-custom th {
+	color: #008f60;
+}
+.inner-property-details .book:hover {
+	background: #008f60;
+}
+.inner-wrapper .single-post .list-inline li a:hover {
+	background: #008f60;
+}
+.inner-wrapper .single-post .btn-1 {
+	background: #008f60;
+}
+.inner-wrapper .single-post .sidebar h2::after {
+	background-color: #008f60;
+}
+.inner-wrapper .sidebar .tags li:hover {
+	background: #008f60;
+}
+.inner-wrapper .sidebar .download-services a {
+	background: #008f60;
+}
+.gal-item::before {
+	background: rgba(130, 180, 64, 0.8) none repeat scroll 0 0;
+}
+.inner-wrapper.contactus form .btn {
+	background: #008f60;
+}
+.inner-wrapper.contactus [type="radio"]:not(:checked) + label:before, .inner-wrapper.contactus [type="radio"]:checked + label:before {
+	border: solid 1px #008f60;
+}
+.inner-wrapper.contactus [type="radio"]:not(:checked) + label:after, .inner-wrapper.contactus [type="radio"]:checked + label:after {
+	color: #008f60;
+}
+.footer-wrapper h2 {
+	color: #008f60;
+}
+.footer-wrapper .form input.bttn {
+	background: #008f60;
+}
+
+@media (max-width: 767px) {
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	background-color: #008f60;
+}
+}

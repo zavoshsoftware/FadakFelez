@@ -1,0 +1,87 @@
+﻿
+@model Fadak.Models.ViewModels.FooterViewModel
+@{
+    Layout = null;
+}
+
+    <!-- Footer Wrapper Start -->
+<section class="footer-wrapper">
+    <div class="container">
+        <diV class="row">
+            <div class="col-sm-6 col-md-3 about-venus">
+                <img src="~/images/logofooter.png" />
+                <p>
+                    @Html.Raw(Model.AboutText)
+                </p>
+                <h3>@Resources.StaticTexts.ContactWithUs</h3>
+                <ul class="address">
+                    <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>
+                            @Html.Raw(Model.address)
+                        </p>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>@Html.Raw(Model.phone)</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <p> @Html.Raw(Model.email) </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-2 footer-nav">
+                <h3>@Resources.StaticTexts.Links</h3>
+                <ul>
+                    <li><a href="/About"><i class="fa fa-angle-left hidden-xs"></i> @Resources.StaticTexts.MenuAbout</a></li>
+                    <li><a href="/contact"><i class="fa fa-angle-left hidden-xs"></i> @Resources.StaticTexts.MenuContact</a></li>
+                    <li><a href="/gallery"><i class="fa fa-angle-left hidden-xs"></i> @Resources.StaticTexts.MenuGallery</a></li>
+                    <li><a href="/blog"><i class="fa fa-angle-left hidden-xs"></i> @Resources.StaticTexts.BlogTitle</a></li>
+                    <li><a href="/customer"><i class="fa fa-angle-left hidden-xs"></i>@Resources.StaticTexts.MenuCustomer</a></li>
+                    <li><a href="/login"><i class="fa fa-angle-left hidden-xs"></i>@Resources.StaticTexts.Login</a></li>
+
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <h3>@Resources.StaticTexts.LatestNews</h3>
+                @foreach (var item in Model.RecentBlog)
+                {
+                    <div class="recent-post">
+                        <div class="row">
+                            <div class="col-sm-3"> <a class="hover-img" href="/blog/@item.fk_BlogCategoryId/@item.Id"> <img alt="@item.TitleStr" src="@item.ImageUrl"> </a> </div>
+                            <div class="col-sm-9 meta-info">
+                                <h4><a href="/blog/@item.fk_BlogCategoryId/@item.Id">@item.TitleStr</a></h4>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>@item.SubmitDate</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+               
+                
+            </div>
+            <div class="col-sm-6 col-md-3 nl">
+                <div class="alert alert-danger" id="errorEmail"></div>
+                <div class="alert alert-success" id="SuccessDivEmail">@Resources.StaticTexts.SubmitSuccess</div>
+                <h3>@Resources.StaticTexts.newsletter</h3>
+                <p>@Model.newsletter</p>
+                <div class="form">
+                    <input type="text" placeholder="@Resources.StaticTexts.InsertEmail" id="txtNewsletter" class="form-control first">
+                    <input type="button" class="bttn" id="btnSubmitNewsletter" value="@Resources.StaticTexts.Submit">
+                </div>
+            </div>
+        </diV>
+    </div>
+</section>
+<!-- Footer Wrapper End -->
+<!-- Copy Rights Start -->
+<footer>
+    <div class="container">
+        <p>
+            &copy; 
+            @Resources.StaticTexts.AllRight <a href="https://zavoshsoftware.com/page/%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C-%D9%88%D8%A8-%D8%B3%D8%A7%DB%8C%D8%AA">@Resources.StaticTexts.DevelopBy</a>
+         
+        </p>
+    </div>
+</footer>
+<!-- Copy Rights End -->

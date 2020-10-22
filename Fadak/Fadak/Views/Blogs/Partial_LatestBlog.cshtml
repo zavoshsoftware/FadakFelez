@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Fadak.Models.Blogs>
+@{ 
+    Layout = null;
+}
+<div class="latest-blogs">
+    <h2>@Resources.StaticTexts.LatestNews</h2>
+    @foreach (var item in Model)
+    {
+        <div class="latest-blog">
+            <div class="row">
+                <div class="col-sm-4"> <a class="hover-img" href="/blog/@item.fk_BlogCategoryId/@item.Id"> <img alt="@item.TitleStr" src="@item.ImageUrl"> </a> </div>
+                <div class="col-sm-8 meta-info">
+                    <h3><a href="/blog/@item.fk_BlogCategoryId/@item.Id">@item.TitleStr</a></h3>
+                    <div class="meta">@item.SubmitDate</div>
+                </div>
+            </div>
+        </div>
+    }
+   
+</div>

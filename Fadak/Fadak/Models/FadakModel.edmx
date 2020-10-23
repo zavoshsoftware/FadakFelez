@@ -174,11 +174,11 @@
             <PropertyRef Name="TextItemID" />
           </Key>
           <Property Name="TextItemID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="200" />
-          <Property Name="TextBody" Type="text" />
-          <Property Name="Title_En" Type="varchar" MaxLength="200" />
-          <Property Name="TextBody_En" Type="text" />
-          <Property Name="TextImageUrl" Type="varchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="TextBody" Type="ntext" />
+          <Property Name="Title_En" Type="nvarchar" MaxLength="200" />
+          <Property Name="TextBody_En" Type="ntext" />
+          <Property Name="TextImageUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="fk_TextTypeID" Type="int" />
           <Property Name="SubmitDate" Type="datetime" />
           <Property Name="IsDelete" Type="bit" />
@@ -520,16 +520,16 @@
             <PropertyRef Name="TextItemID" />
           </Key>
           <Property Name="TextItemID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="TextBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TextImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TextBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TextImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="fk_TextTypeID" Type="Int32" />
           <Property Name="SubmitDate" Type="DateTime" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" />
           <Property Name="DeleteDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TextTypes" Relationship="FadakDBModel.FK_TextItems_TextTypes" FromRole="TextItems" ToRole="TextTypes" />
-          <Property Name="Title_En" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="TextBody_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Title_En" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TextBody_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TextTypes">
           <Key>
